@@ -7,5 +7,5 @@
 
 2. Set the CRON job
 
-<pre><code>blablabla
+<pre><code>59 7 * * * python /Users/yeejie.tang/Documents/GitHub/fitness-first-class-booker/book_ff_class.py
 </code></pre>
