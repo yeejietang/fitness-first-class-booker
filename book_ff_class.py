@@ -92,12 +92,6 @@ elif dow == 1:
     driver2 = ffchrome('MBFC', yj_login, yj_pwd)
     driver3 = ffchrome('MBFC', val_login, val_pwd)
     driver4 = ffchrome('MBFC', val_login, val_pwd)
-# elif dow == 2:
-#     driver1 = ffchrome('MarketStreet')
-# elif dow == 3:
-#     driver1 = ffchrome('Paragon')
-#     driver2 = ffchrome('Metropolis')
-#     driver3 = ffchrome('Metropolis')
 # elif (dow == 4 or dow == 5):
 #     driver1 = ffchrome('Paragon')
 else:
@@ -124,9 +118,9 @@ with ThreadPoolExecutor(max_workers=None) as executor:
                     executor.submit(refresh_and_book_class, driver2, 'but2700') ] 
     elif dow == 1:
         futures = [ executor.submit(refresh_and_book_class, driver1, 'but902'), 
-                    executor.submit(refresh_and_book_class, driver2, 'but906'),
-                    executor.submit(refresh_and_book_class, driver1, 'but902'), 
-                    executor.submit(refresh_and_book_class, driver2, 'but906') ] 
+                    executor.submit(refresh_and_book_class, driver2, 'but906'), 
+                    executor.submit(refresh_and_book_class, driver3, 'but902'), 
+                    executor.submit(refresh_and_book_class, driver4, 'but906') ] 
 
 # Click all book buttons
 # ffchrome.click_book_button()

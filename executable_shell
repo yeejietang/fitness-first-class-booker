@@ -1,0 +1,3 @@
+#!/bin/sh
+python /Users/yeejie.tang/Documents/GitHub/fitness-first-class-booker/book_ff_class.py
+xattr -r -d com.apple.quarantine /Users/yeejie.tang/Documents/GitHub/fitness-first-class-booker/executable_shell
