@@ -16,8 +16,8 @@ from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_compl
 class ffchrome(Chrome):
 
     executable_path = '/usr/local/bin/chromedriver' 
-    # Tells driver to implicitly wait for elements for 5 seconds before timing out
-    time_to_wait = 7 
+    # Tells driver to implicitly wait for elements for 10 seconds before timing out
+    time_to_wait = 10 
     ff_website = 'https://clients.mindbodyonline.com/LoginLaunch?studioid=741470'
     gym_selector = 'a.selectBox.bf-filter.selectBox-dropdown' 
     drivers = [] # registrar 
