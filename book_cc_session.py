@@ -17,8 +17,8 @@ from datetime import timedelta
 
 # Change these variables
 gym_to_book = 'ccf' #('ccsh', 'ccf', 'ccn') 
-hour_to_book = 19
-minute_to_book = 0
+hour_to_book = 18
+minute_to_book = 30
 days_later = 3
 running_test = False
 persons_to_book = ['yj', 'val'] #['yj', 'val', 'kyle']. 'yj' is always in
@@ -59,7 +59,7 @@ time.sleep(2) # Wait 2 seconds before all other actions
 dt = datetime.now()
 y, m, d = dt.year, dt.month, dt.day
 if not running_test: # If running test, don't want to pause
-    pause.until(datetime(y, m, d, hour_to_book, minute_to_book)) # Pause until booking is open
+    pause.until(datetime(y, m, d, 12, 0)) # Pause until booking is open
 start = time.time() # Start timer
 driver1.refresh() # Refresh at certain time
 day_to_book = dt + timedelta(days=days_later) # Find date for 3 (or other amount) days later
@@ -74,43 +74,69 @@ if 'val' in persons_to_book:
 if 'kyle' in persons_to_book:
     driver1.find_element_by_xpath('//*[@id="theform"]/div[6]/div/fieldset[2]/table/tbody/tr[2]/td[1]/a[2]').click()
 
+# weekday_dict = {
+#     '110': '1',
+#     '1130': '2',
+#     '120': '3',
+#     '1230': '4',
+#     '1330': '5',
+#     '140': '6',
+#     '1430': '7',
+#     '150': '8',
+#     '160': '9',
+#     '1630': '10',
+#     '170': '11',
+#     '1730': '12',
+#     '1830': '13',
+#     '190': '14',
+#     '1930': '15',
+#     '200': '16',
+#     '2050': '17'
+# }
+
 weekday_dict = {
-    '110': '1',
-    '1130': '2',
-    '120': '3',
-    '1230': '4',
-    '1330': '5',
-    '140': '6',
-    '1430': '7',
-    '150': '8',
-    '160': '9',
-    '1630': '10',
-    '170': '11',
-    '1730': '12',
-    '1830': '13',
-    '190': '14',
-    '1930': '15',
-    '200': '16',
-    '2050': '17'
+    '100': '1',
+    '110': '2',
+    '1230': '3',
+    '1330': '4',
+    '150': '5',
+    '160': '6',
+    '1730': '7',
+    '1830': '8',
+    '200': '9',
+    '2050': '10'
 }
+
+# weekend_dict = {
+#     '90': '1',
+#     '930': '2',
+#     '100': '3',
+#     '1030': '4',
+#     '1130': '5',
+#     '120': '6',
+#     '1230': '7',
+#     '130': '8',
+#     '140': '9',
+#     '1430': '10',
+#     '150': '11',
+#     '1530': '12',
+#     '1630': '13',
+#     '170': '14',
+#     '1730': '15',
+#     '180': '16',
+#     '1850': '17'
+# }
+
 weekend_dict = {
     '90': '1',
-    '930': '2',
-    '100': '3',
-    '1030': '4',
-    '1130': '5',
-    '120': '6',
-    '1230': '7',
-    '130': '8',
-    '140': '9',
-    '1430': '10',
-    '150': '11',
-    '1530': '12',
-    '1630': '13',
-    '170': '14',
-    '1730': '15',
-    '180': '16',
-    '1850': '17'
+    '100': '2',
+    '1130': '3',
+    '1230': '4',
+    '140': '5',
+    '150': '6',
+    '1630': '7',
+    '1730': '8',
+    '1850': '9'
 }
 
 if day_to_book.weekday()<5: # Weekday
@@ -192,47 +218,6 @@ if not running_test: # If running test, don't want to book
 # End
 end = time.time()
 print("Time Taken: {:.6f}s".format(end-start))
-time.sleep(2) # Wait 2 seconds before quitting
-if not running_test: # If running test, don't want to quit
-    driver1.quit()
-
-
-"""
-Sports Hub & Funan Weekdays:
-1: 11.00am
-2: 11.30am
-3: 12.00pm
-4: 12.30pm
-5: 1.30pm
-6: 2.00pm
-7: 2.30pm
-8: 3.00pm
-9: 4.00pm
-10: 4.30pm
-11: 5.00pm
-12: 5.30pm
-13: 6.30pm
-14: 7.00pm
-15: 7.30pm
-16: 8.00pm
-17: 8.50pm
-
-Sports Hub & Funan Weekends:
-1: 9.00am
-2: 9.30am
-3: 10.00am
-4: 10.30am
-5: 11.30am
-6: 12.00pm
-7: 12.30pm
-8: 1.00pm
-9: 2.00pm
-10: 2.30pm
-11: 3.00pm
-12: 3.30pm
-13: 4.30pm
-14: 5.00pm
-15: 5.30pm
-16: 6.00pm
-17: 6.50pm
-"""
+# time.sleep(2) # Wait 2 seconds before quitting
+# if not running_test: # If running test, don't want to quit
+#     driver1.quit()
